@@ -1,1 +1,68 @@
+####Medium pipelines
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3          
+      - uses: dorny/paths-filter@v3
+
+        id: filter
+        with:
+          filters: |
+
+            microservice_one:
+              - '1/**'
+
+            microservice_two:
+              - '2/**'
+
+            microservice_three:
+
+              - '3/**'
+            microservice_four:
+              - '4/**'
+
+            microservice_five:
+              - '5/**'
+
+###Micro services one
+      - name: One MicroServices step start form here 
+        if: steps.filter.outputs.microservice_one == 'true'
+        run: |
+            cd micro-services/1 
+            <YOUR-PROJECT_COMMAND_HERE>
+
+###Micro services two 
+      - name: Two MicroServices step start form here 
+        if: steps.filter.outputs.microservice_two == 'true'
+        run: |
+            cd micro-services/2
+            <YOUR-PROJECT_COMMAND_HERE>
+
+###Micro services three
+      - name: Three MicroServices step start form here 
+        if: steps.filter.outputs.smicroservice_three == 'true'
+        run: |
+            cd micro-services/3
+            <YOUR-PROJECT_COMMAND_HERE>
+
+###Micro services four
+      - name: Four MicroServices step start form here
+        if: steps.filter.outputs.microservice_four == 'true'
+        run: |
+            cd micro-services/4
+            <YOUR-PROJECT_COMMAND_HERE>
+
+###Micro services five 
+      - name: Five MicroServices step start form here 
+        if: steps.filter.outputs.microservice_five == 'true'
+        run: |
+            cd micro-services/5
+            <YOUR-PROJECT_COMMAND_HERE>
 
