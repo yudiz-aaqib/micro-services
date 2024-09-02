@@ -35,34 +35,34 @@ jobs:
       - name: One MicroServices step start form here 
         if: steps.filter.outputs.microservice_one == 'true'
         run: |
-            cd micro-services/1 
+            #cd micro-services/1 
             echo " one Micro_services run successfully !!!!"
 
 ###Micro services two 
       - name: Two MicroServices step start form here 
         if: steps.filter.outputs.microservice_two == 'true'
         run: |
-            cd micro-services/2
+            #cd micro-services/2
             echo " two Micro_services run successfully !!!!"
 
 ###Micro services three
       - name: Three MicroServices step start form here 
         if: steps.filter.outputs.smicroservice_three == 'true'
         run: |
-            cd micro-services/3
+            #cd micro-services/3
             echo " three Micro_services run successfully !!!!"
 
 ###Micro services four
       - name: Four MicroServices step start form here
         if: steps.filter.outputs.microservice_four == 'true'
         run: |
-            cd micro-services/4
+            #cd micro-services/4
             echo " four Micro_services run successfully !!!!"
 
 ###Micro services five 
       - name: Five MicroServices step start form here 
         if: steps.filter.outputs.microservice_five == 'true'
         run: |
-            cd micro-services/5
+            #cd micro-services/5
             echo " five Micro_services run successfully !!!!"
 
